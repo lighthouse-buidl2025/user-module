@@ -1,8 +1,11 @@
 import express from 'express';
+import oracledb from 'oracledb';
 import cors from 'cors';
 import userRouter from './routes/user.route';
 
 const app = express();
+
+oracledb.initOracleClient({ libDir: process.env.ORACLE_CLIENT_LIB_DIR });
 
 app.use(
     cors({
