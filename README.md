@@ -27,10 +27,18 @@ http://localhost:8081/api/user
 
     ```json
     {
-      "success": true,
-      "message": "User created",
-      "data": { ...userData }
-    }
+  "success": true,
+  "message": "User created",
+  "data": {
+    "_id": "...",
+    "address": "0xabc1234567890...",
+    "email": "",
+    "telegram": "",
+    "createdAt": "2024-04-12T...",
+    "__v": 0
+  }
+}
+
     ```
 
 - **Error (409)**
@@ -54,9 +62,17 @@ http://localhost:8081/api/user
 
     ```json
     {
-      "success": true,
-      "data": { ...userData }
-    }
+  "success": true,
+  "data": {
+    "_id": "...",
+    "address": "0xabc1234567890...",
+    "email": "daniel@example.com",
+    "telegram": "@daniel_eth",
+    "createdAt": "2024-04-12T...",
+    "__v": 0
+  }
+}
+
     ```
 
 - **Error (404)**
@@ -88,10 +104,18 @@ http://localhost:8081/api/user
 
     ```json
     {
-      "success": true,
-      "message": "Email set successfully",
-      "data": { ...userData }
-    }
+  "success": true,
+  "message": "Email set successfully",
+  "data": {
+    "_id": "...",
+    "address": "0xabc1234567890...",
+    "email": "daniel@example.com",
+    "telegram": "",
+    "createdAt": "2024-04-12T...",
+    "__v": 0
+  }
+}
+
     ```
 
 ---
@@ -114,10 +138,18 @@ http://localhost:8081/api/user
 
     ```json
     {
-      "success": true,
-      "message": "Telegram set successfully",
-      "data": { ...userData }
-    }
+  "success": true,
+  "message": "Telegram set successfully",
+  "data": {
+    "_id": "...",
+    "address": "0xabc1234567890...",
+    "email": "",
+    "telegram": "@daniel_eth",
+    "createdAt": "2024-04-12T...",
+    "__v": 0
+  }
+}
+
     ```
 
 ---
