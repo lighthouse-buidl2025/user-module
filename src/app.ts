@@ -1,11 +1,22 @@
 import express from 'express';
-import oracledb from 'oracledb';
+import mongoose from 'mongoose';
 import cors from 'cors';
 import userRouter from './routes/user.route';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
 
-oracledb.initOracleClient({ libDir: process.env.ORACLE_CLIENT_LIB_DIR });
+console.log(process.env.MONGODB_URI);
+
+mongoose
+  .connect(process.env.MONGODB_URI as string)
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch((err) => {
+    console.error('❌ MongoDB connection error:', err);
+    process.exit(1);
+  });
 
 app.use(
     cors({
@@ -15,6 +26,6 @@ app.use(
     })
   );
 app.use(express.json());
-app.use('/users', userRouter);
+app.use('/api/user', userRouter);
 
 export default app;
