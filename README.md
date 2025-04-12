@@ -1,13 +1,13 @@
-# 📘 User Module API 문서
+# 📘 User Module API Documentation
 
-Base URL: `http://localhost:8081/api/user`
+**Base URL:** `http://localhost:8081/api/user`
 
 ---
 
-## ✅ 1. [POST] `/signup` – **지갑 주소 기반 회원가입**
+## ✅ 1. [POST] `/signup` – **Register User via Wallet Address**
 
-### 📌 설명  
-지갑 주소가 DB에 없으면 새 유저를 등록합니다.
+### 📌 Description  
+Registers a new user if the wallet address does not already exist in the database.
 
 ### 🔹 Request
 
@@ -22,7 +22,7 @@ Base URL: `http://localhost:8081/api/user`
 }
 ```
 
-### ✅ 성공 응답: `201 Created`
+### ✅ Success Response: `201 Created`
 
 ```json
 {
@@ -39,9 +39,9 @@ Base URL: `http://localhost:8081/api/user`
 }
 ```
 
-### ❌ 실패 응답
+### ❌ Failure Responses
 
-- 이미 존재할 경우:
+- When the user already exists:
 ```json
 {
   "success": false,
@@ -49,7 +49,7 @@ Base URL: `http://localhost:8081/api/user`
 }
 ```
 
-- 주소 누락:
+- When the address is missing:
 ```json
 {
   "success": false,
@@ -59,17 +59,17 @@ Base URL: `http://localhost:8081/api/user`
 
 ---
 
-## ✅ 2. [GET] `/:address` – **유저 조회**
+## ✅ 2. [GET] `/:address` – **Get User Info**
 
-### 📌 설명  
-지갑 주소로 등록된 유저 정보를 조회합니다.
+### 📌 Description  
+Fetches user information registered under the given wallet address.
 
 ### 🔹 Request
 
 - **Method**: `GET`
-- **URL 예시**: `/api/user/0xabc1234567890...`
+- **Example URL**: `/api/user/0xabc1234567890...`
 
-### ✅ 성공 응답: `200 OK`
+### ✅ Success Response: `200 OK`
 
 ```json
 {
@@ -85,7 +85,7 @@ Base URL: `http://localhost:8081/api/user`
 }
 ```
 
-### ❌ 실패 응답
+### ❌ Failure Response
 
 ```json
 {
@@ -96,10 +96,10 @@ Base URL: `http://localhost:8081/api/user`
 
 ---
 
-## ✅ 3. [POST] `/email/:address` – **이메일 등록/수정**
+## ✅ 3. [POST] `/email/:address` – **Register/Update Email**
 
-### 📌 설명  
-지갑 주소 기준으로 이메일을 등록하거나 수정합니다.
+### 📌 Description  
+Registers or updates an email address for the given wallet address.
 
 ### 🔹 Request
 
@@ -114,9 +114,9 @@ Base URL: `http://localhost:8081/api/user`
 }
 ```
 
-- **URL 예시**: `/api/user/email/0xabc1234567890...`
+- **Example URL**: `/api/user/email/0xabc1234567890...`
 
-### ✅ 성공 응답: `200 OK`
+### ✅ Success Response: `200 OK`
 
 ```json
 {
@@ -135,10 +135,10 @@ Base URL: `http://localhost:8081/api/user`
 
 ---
 
-## ✅ 4. [POST] `/telegram/:address` – **텔레그램 등록/수정**
+## ✅ 4. [POST] `/telegram/:address` – **Register/Update Telegram**
 
-### 📌 설명  
-지갑 주소 기준으로 텔레그램 ID를 등록하거나 수정합니다.
+### 📌 Description  
+Registers or updates a Telegram ID for the given wallet address.
 
 ### 🔹 Request
 
@@ -153,9 +153,9 @@ Base URL: `http://localhost:8081/api/user`
 }
 ```
 
-- **URL 예시**: `/api/user/telegram/0xabc1234567890...`
+- **Example URL**: `/api/user/telegram/0xabc1234567890...`
 
-### ✅ 성공 응답: `200 OK`
+### ✅ Success Response: `200 OK`
 
 ```json
 {
@@ -174,13 +174,11 @@ Base URL: `http://localhost:8081/api/user`
 
 ---
 
-## ✅ 공통 에러 응답
+## ✅ Common Error Response
 
 ```json
 {
   "success": false,
-  "message": "설명 메시지"
+  "message": "Descriptive error message"
 }
 ```
-
----
